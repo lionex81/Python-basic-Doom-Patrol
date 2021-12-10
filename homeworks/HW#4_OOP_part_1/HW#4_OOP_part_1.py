@@ -15,8 +15,13 @@ class Bus(Vehicle):
         super().__init__(model, max_speed, mileage)
         self.capacity = capacity
 
+    def seat_capacity(self):
+        return self.capacity
+
 my_bus = Bus('Setra', 150, 20000, 30)
-print(f"My bus {my_bus.model} has max_speed {my_bus.max_speed} km/h, it's mileage is {my_bus.mileage} km and it has {my_bus.capacity} seats.")
+
+print(f"My bus {my_bus.model} has max_speed {my_bus.max_speed} km/h, it's mileage is {my_bus.mileage} km ")
+print(f"and it has {my_bus.seat_capacity()} seats.")
 #3
 print(type(my_bus))
 #4
@@ -37,9 +42,13 @@ class SchoolBus(School, Bus):
         School.__init__(self, name, id, stud_num)
         Bus.__init__(self, model, max_speed, mileage, capacity)
         self.bus_school_color = bus_school_color
+
+    def busschcolor(self):
+        return self.bus_school_color
+
 my_school_bus = SchoolBus('Hill', 5, 100, "Setra", 150, 20000, 30, 'yellow')
-print(f"My school {my_school_bus.name} has bus {my_school_bus.model} with max_speed {my_school_bus.max_speed} km/h, "
-      f"\nit has {my_school_bus.capacity} seats and its color is {my_school_bus.bus_school_color}")
+print(f"My school {my_school_bus.name} has bus {my_school_bus.model} with max_speed {my_school_bus.max_speed} km/h,\nit has {my_school_bus.capacity} seats ")
+print(f"and its color is {my_school_bus.busschcolor()}.")
 #7
 class Bear():
     def __init__(self, age):
