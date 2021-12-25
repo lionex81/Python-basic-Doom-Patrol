@@ -1,5 +1,6 @@
 import json
 import os
+import logging
 
 def check_email(email, all_users_data):
     for user in all_users_data:
@@ -47,7 +48,7 @@ def get_all():
             print("Last Name: " + user['last_name'])
             print("Email: " + user['Email'])
 
-#HW9 EXCEPTIONS
+#HW9 LOGGING & EXCEPTIONS
 #When input value which is not in databese program returns error(FileNotFoundError)
 def search_by(search_str, what_to_search):
   try:
@@ -61,6 +62,7 @@ def search_by(search_str, what_to_search):
                 print("Email: " + user['Email'])
   except FileNotFoundError:
       print('No such value in database')
+      logging.warning("User input non-existent value")
 def update_user():
     file = open('database/users.json', 'r')
     users = json.loads(file.read())
