@@ -67,7 +67,15 @@ def update_user():
     file = open('database/users.json', 'r')
     users = json.loads(file.read())
     file.close()
-    id = int(input("Type id of user which you want to update: "))
+     #ValueError
+    try:
+        id = int(input("Type id of user which you want to update: "))
+    except ValueError:
+        print("Id must be number!")
+        print("Enter number again")
+        logging.warning(" Not integer id")
+        id = int(input("Type id of user which you want to update: "))
+
     first_name = input("First Name: ")
     last_name = input("Last Name: ")
     email = input("Email: ")
